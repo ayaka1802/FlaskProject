@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{name}}</title>
+    </head>
+    <body>
+    {% if name == "aya" %}
+    <h1>やばい{{name}}日記</h1>
+    {% elif name %}
+    <h1>{{name}}日記</h1>
+    {% else %}
+    <h1>ただの日記</h1>
+    {% endif %}
+
+    <form action="/index" method="POST">
+        <input type="text" name="name" placeholder="Enter name">
+        <input type="submit" value="Submit">
+    </form>
+
+    <img src="/static/images/nikki.png" alt="日記">
+
+    {% for onegai in all_onegai %}
+    <p>{{onegai.title}}：{{onegai.body}}（{{onegai.date}}）</p>
+    {% endfor %}
+
+    </body>
+</html>
